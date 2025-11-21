@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: m3u8.parser.docker.arm
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 2048MB
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:sqlite:./db/mcd.sqlite3
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      pool-name: mcd
+      connection-timeout: 60000
+      maximum-pool-size: 3
+      max-lifetime: 1800000
+      keepalive-time: 1750000
+      connection-test-query: select 1
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: true
+  global-config:
+    db-config:
+      table-underline: false
+      logic-delete-field: deleted
+      logic-delete-value: true
+      logic-not-delete-value: false
+server:
+  port: 9988
+  tomcat:
+    uri-encoding: UTF-8
+    maxHttpHeaderSize: 8192
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+    min-response-size: 2048
+logging:
+  level:
+    com.sj.m3u8.parser.docker.mapper: OFF
+jwt:
+  secret: ceqY8H0H
