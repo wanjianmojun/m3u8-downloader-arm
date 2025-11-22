@@ -32,7 +32,7 @@ import cn.hutool.http.HttpUtil;
 public class M3u8Util {
 	public static String getContent(String uri, int tryCount) {
 		try {
-			return HttpUtil.get(uri, 10000);
+			return HttpUtil.get(uri.replaceAll("\r", StrUtil.EMPTY).replaceAll("\n", StrUtil.EMPTY), 10000);
 		} catch (Exception e) {
 			if (tryCount <= 0) {
 				return null;
@@ -55,7 +55,8 @@ public class M3u8Util {
 				return;
 			}
 			if (aes == null) {
-				HttpUtil.downloadFile(ts.getUrl(), new File(tsPath), 30000);
+				HttpUtil.downloadFile(ts.getUrl().replaceAll("\r", StrUtil.EMPTY).replaceAll("\n", StrUtil.EMPTY),
+						new File(tsPath), 30000);
 			} else {
 				byte[] entry = HttpDownloader.downloadBytes(ts.getUrl(), 30000);
 				byte[] decrypt = aes.decrypt(entry);

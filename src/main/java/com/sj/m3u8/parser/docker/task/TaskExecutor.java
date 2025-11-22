@@ -178,19 +178,19 @@ public class TaskExecutor {
 				if (mcdSubscribe.getUrl().startsWith("https://www.ifzfl.cn")) {
 					int contentNumber = IfzflParser.getContentNumber(mcdSubscribe.getUrl());
 					if (mcdSubscribe.getCount() >= contentNumber) {
-						break;
+						continue;
 					}
 					mcdSubscribe.setCount(contentNumber);
 					res = IfzflParser.doParse(mcdSubscribe.getUrl());
 				} else if (mcdSubscribe.getUrl().startsWith("https://www.gangjuw.tv")) {
 					int contentNumber = GangjuwParser.getContentNumber(mcdSubscribe.getUrl());
 					if (mcdSubscribe.getCount() >= contentNumber) {
-						break;
+						continue;
 					}
 					mcdSubscribe.setCount(contentNumber);
 					res = GangjuwParser.doParse(mcdSubscribe.getUrl());
 				} else {
-					break;
+					continue;
 				}
 				if (res.getCode() == 0) {
 					List<Result> results = res.toDataList(Result.class);

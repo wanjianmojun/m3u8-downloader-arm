@@ -1,20 +1,25 @@
 package com.sj.m3u8.parser.docker.controller;
 
+import java.io.File;
+import java.nio.charset.Charset;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.multipart.MultipartFile;
 import com.sj.m3u8.parser.docker.dto.LoginDTO;
 import com.sj.m3u8.parser.docker.dto.ResDTO;
 import com.sj.m3u8.parser.docker.entity.McdConfig;
 import com.sj.m3u8.parser.docker.entity.McdParse;
 import com.sj.m3u8.parser.docker.entity.McdSubscribe;
 import com.sj.m3u8.parser.docker.entity.McdTask;
+import com.sj.m3u8.parser.docker.enu.Msg;
 import com.sj.m3u8.parser.docker.service.ITaskService;
 import com.sj.m3u8.parser.docker.util.M3u8Util;
+import cn.hutool.core.util.ZipUtil;
+import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
 public class TaskController {
@@ -87,20 +92,32 @@ public class TaskController {
 	public ResDTO<?> login(@RequestBody LoginDTO loginDTO) {
 		return taskService.login(loginDTO);
 	}
-	
+
 	@PostMapping("/contact")
 	public ResDTO<?> contact() {
 		return taskService.contact();
 	}
-	
+
 	@PostMapping("/updatePassword")
 	public ResDTO<?> updatePassword(@RequestBody LoginDTO loginDTO) {
 		return taskService.updatePassword(loginDTO);
 	}
-	
+
 	@PostMapping("/cleanData")
 	public ResDTO<?> cleanData() {
 		return taskService.cleanData();
+	}
+
+	@PostMapping(value = "/update")
+	public ResDTO<?> update(@RequestParam("file") MultipartFile file, HttpServletResponse httpServletResponse) {
+		try {
+			File path = new File("/update");
+			ZipUtil.unzip(file.getInputStream(), path, Charset.defaultCharset());
+			return ResDTO.success();
+		} catch (Exception e) {
+			httpServletResponse.setStatus(500);
+			return ResDTO.failure(Msg.MSG_SERVICE_ERROR);
+		}
 	}
 
 }

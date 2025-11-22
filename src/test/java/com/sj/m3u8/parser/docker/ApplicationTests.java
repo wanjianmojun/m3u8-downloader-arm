@@ -1,6 +1,7 @@
 package com.sj.m3u8.parser.docker;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -9,9 +10,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.iheartradio.m3u8.Encoding;
 import com.iheartradio.m3u8.Format;
@@ -56,16 +59,14 @@ class ApplicationTests {
 	private ITaskService taskService;
 
 //	public static void main(String[] args) throws Exception {
-//		String password = RandomUtil.randomString(12);
-//		password = "123456";
-//		String salt = RandomUtil.randomString(8);
-//		String hex = SecureUtil.hmacMd5(password + salt).digestHex(salt);
-//		System.out.println(hex);
-//		System.out.println(salt);
+//		String url = "https://v12.tlkqc.com/wjv12/202407/18/k3u5rqFEGk84/video/1000k_720/hls/index.m3u8";
+//		System.out.println(HttpUtil.get(url, 10000));
 //	}
 
 //	@Test
 	void contextLoads() {
+		
+		
 //		List<McdConfig> configs = new ArrayList<McdConfig>();
 //		configs.add(new McdConfig(null, "download_count", "3", "同时下载任务数", null));
 //		configs.add(new McdConfig(null, "parse_count", "1", "同时解析任务数", null));
@@ -87,14 +88,14 @@ class ApplicationTests {
 //		});
 //		taskService.addParseDownload(mcdParse);
 
-		McdTask mcdTask = new McdTask(null, "唐朝诡事录之长安17", null, "D:/网盘/唐朝诡事录之长安",
-				"https://cdn.yzzy31-play.com/20251114/6444_8a36dfc6/index.m3u8", 0, 0, null, null);
-		taskService.downloadOne(mcdTask);
-		try {
-			Thread.currentThread().join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		McdTask mcdTask = new McdTask(null, "唐朝诡事录之长安17", null, "D:/网盘/唐朝诡事录之长安",
+//				"https://cdn.yzzy31-play.com/20251114/6444_8a36dfc6/index.m3u8", 0, 0, null, null);
+//		taskService.downloadOne(mcdTask);
+//		try {
+//			Thread.currentThread().join();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }

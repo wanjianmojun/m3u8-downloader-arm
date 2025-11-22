@@ -44,6 +44,15 @@
       ]
     },
     {
+      "type": "cn.hutool.json.JSONConverter",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
       "type": "co.elastic.clients.elasticsearch.ElasticsearchClient"
     },
     {
@@ -886,6 +895,13 @@
         {
           "name": "taskListHistory",
           "parameterTypes": []
+        },
+        {
+          "name": "update",
+          "parameterTypes": [
+            "org.springframework.web.multipart.MultipartFile",
+            "jakarta.servlet.http.HttpServletResponse"
+          ]
         },
         {
           "name": "updatePassword",
@@ -1942,6 +1958,17 @@
       ]
     },
     {
+      "type": "java.io.IOException",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
       "type": "java.io.Reader"
     },
     {
@@ -2178,6 +2205,17 @@
       ]
     },
     {
+      "type": "java.net.SocketException",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "java.lang.String"
+          ]
+        }
+      ]
+    },
+    {
       "type": "java.net.UnixDomainSocketAddress"
     },
     {
@@ -2194,6 +2232,12 @@
     },
     {
       "type": "java.security.KeyStoreSpi"
+    },
+    {
+      "type": "java.security.interfaces.ECPrivateKey"
+    },
+    {
+      "type": "java.security.interfaces.ECPublicKey"
     },
     {
       "type": "java.security.interfaces.RSAPrivateKey"
@@ -6434,6 +6478,9 @@
       "type": "org.springframework.web.bind.annotation.RequestMethod[]"
     },
     {
+      "type": "org.springframework.web.bind.annotation.RequestParam"
+    },
+    {
       "type": "org.springframework.web.bind.annotation.ResponseBody"
     },
     {
@@ -6491,7 +6538,13 @@
       "type": "org.springframework.web.method.support.UriComponentsContributor"
     },
     {
+      "type": "org.springframework.web.multipart.MultipartFile"
+    },
+    {
       "type": "org.springframework.web.multipart.MultipartResolver"
+    },
+    {
+      "type": "org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile"
     },
     {
       "type": "org.springframework.web.multipart.support.StandardServletMultipartResolver"
@@ -7257,6 +7310,15 @@
       ]
     },
     {
+      "type": "sun.security.rsa.RSASignature$SHA512withRSA",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
       "type": "sun.security.ssl.KeyManagerFactoryImpl$SunX509",
       "methods": [
         {
@@ -7354,6 +7416,18 @@
     },
     {
       "type": "sun.security.x509.ExtendedKeyUsageExtension",
+      "methods": [
+        {
+          "name": "<init>",
+          "parameterTypes": [
+            "java.lang.Boolean",
+            "java.lang.Object"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "sun.security.x509.IssuerAlternativeNameExtension",
       "methods": [
         {
           "name": "<init>",
@@ -7553,6 +7627,13 @@
     },
     {
       "type": {
+        "proxy": [
+          "org.springframework.web.bind.annotation.RequestParam"
+        ]
+      }
+    },
+    {
+      "type": {
         "lambda": {
           "declaringClass": "com.sj.m3u8.parser.docker.service.impl.TaskServiceImpl",
           "interfaces": [
@@ -7635,7 +7716,7 @@
       "glob": "META-INF/resources/assets/index-6j2T5vlN.css"
     },
     {
-      "glob": "META-INF/resources/assets/index-DGvH3XDr.js"
+      "glob": "META-INF/resources/assets/index-nTfTPwyq.js"
     },
     {
       "glob": "META-INF/resources/assets/top-DVtV29ko.png"
@@ -8721,7 +8802,7 @@
       "glob": "resources/assets/index-6j2T5vlN.css"
     },
     {
-      "glob": "resources/assets/index-DGvH3XDr.js"
+      "glob": "resources/assets/index-nTfTPwyq.js"
     },
     {
       "glob": "resources/assets/top-DVtV29ko.png"
@@ -8745,7 +8826,7 @@
       "glob": "static/assets/index-6j2T5vlN.css"
     },
     {
-      "glob": "static/assets/index-DGvH3XDr.js"
+      "glob": "static/assets/index-nTfTPwyq.js"
     },
     {
       "glob": "static/assets/top-DVtV29ko.png"
