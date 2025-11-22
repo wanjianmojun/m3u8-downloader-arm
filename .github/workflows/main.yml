@@ -1,0 +1,28 @@
+name: Build with GraalVM
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '25'
+
+    - name: Install GraalVM
+      run: |
+        curl -o graalvm.tar.gz https://download.oracle.com/graalvm/25/latest/graalvm-jdk-25_linux-aarch64_bin.tar.gz
+        tar -xzf graalvm.tar.gz
+        export PATH=$PWD/graalvm-jdk-25.0.1+8.1/bin:$PATH
+
+    - name: Build with Maven (example)
+      run: |
+        ./mvnw clean package
+        ./mvnw -Pnative native:compile
